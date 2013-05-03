@@ -40,5 +40,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Item'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Stocks'), array('controller'=>'stocks','action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Histories'), array('controller'=>'histories','action' => 'index')); ?></li>
 	</ul>
 </div>

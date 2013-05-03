@@ -40,7 +40,18 @@ class StocksController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Stock->create();
-			if ($this->Stock->save($this->request->data)) {
+			$data= array(
+						'Stock' => array(
+							'item_id' =>$this->request->data['Stock']['item_id'],
+							'first_value' =>$this->request->data['Stock']['first_value'],
+							'second_value' =>$this->request->data['Stock']['first_value'],
+							'note' =>$this->request->data['Stock']['note'],
+						)
+						 
+						 );
+			//debug($data);
+			//exit();
+			if ($this->Stock->save($data)) {
 				$this->Session->setFlash(__('The stock has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {

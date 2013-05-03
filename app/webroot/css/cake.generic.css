@@ -737,3 +737,10 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+
+#datepicker_awal,#datepicker_akhir{
+	width: 200px;
+}
+.button_cari{
+	width: 100px;
+}

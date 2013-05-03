@@ -30,7 +30,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
-
+		echo $this->Html->css('base/jquery-ui');
+		echo $this->Html->script('jquery-ui/jquery-1.9.1');
+		echo $this->Html->script('jquery-ui/ui/jquery-ui');
+		echo $this->Html->script(array(strtolower($this->params['controller'])));
+		echo $this->App->js();
+		
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');

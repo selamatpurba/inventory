@@ -5,7 +5,6 @@
 	<?php
 		echo $this->Form->input('item_id');
 		echo $this->Form->input('first_value');
-		echo $this->Form->input('second_value');
 		echo $this->Form->input('note');
 	?>
 	</fieldset>

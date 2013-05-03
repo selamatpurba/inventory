@@ -2,18 +2,16 @@
 	<h2><?php echo __('Stocks'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('item_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('first_value'); ?></th>
-			<th><?php echo $this->Paginator->sort('second_value'); ?></th>
-			<th><?php echo $this->Paginator->sort('note'); ?></th>
+			<th><?php echo $this->Paginator->sort('Nama Barang'); ?></th>
+			<th><?php echo $this->Paginator->sort('Stok Awal'); ?></th>
+			<th><?php echo $this->Paginator->sort('Sisa'); ?></th>
+			<th><?php echo $this->Paginator->sort('Keterangan'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($stocks as $stock): ?>
 	<tr>
-		<td><?php echo h($stock['Stock']['id']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($stock['Item']['name'], array('controller' => 'items', 'action' => 'view', $stock['Item']['id'])); ?>
 		</td>

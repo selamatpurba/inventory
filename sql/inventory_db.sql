@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 03, 2013 at 02:07 PM
--- Server version: 5.5.25a
--- PHP Version: 5.4.4
+-- Generation Time: May 05, 2013 at 08:21 PM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `histories` (
   `value` text NOT NULL,
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `histories`
@@ -43,7 +43,10 @@ INSERT INTO `histories` (`id`, `value`, `created`) VALUES
 (13, 'Pengguna menghapus item Benfica', '2013-04-30 17:28:13'),
 (14, 'Pengguna menambahkan item berupa Star Mild', '2013-05-01 14:12:34'),
 (15, 'Pengguna menambahkan item berupa Mouse', '2013-05-02 14:12:34'),
-(16, 'Pengguna menghapus item Star Mild', '2013-05-03 15:55:26');
+(16, 'Pengguna menghapus item Star Mild', '2013-05-03 15:55:26'),
+(17, 'Pengguna menambahkan item berupa Marlboro', '2013-05-04 08:43:31'),
+(18, 'Pengguna menghapus item Marlboro', '2013-05-04 08:44:11'),
+(19, 'Pengguna menambahkan item berupa Marlboro', '2013-05-04 09:48:42');
 
 -- --------------------------------------------------------
 
@@ -57,7 +60,46 @@ CREATE TABLE IF NOT EXISTS `items` (
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`id`, `name`, `created`, `modified`) VALUES
+(3, 'Marlboro', '2013-05-04 04:48:39', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prices`
+--
+
+CREATE TABLE IF NOT EXISTS `prices` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_id` int(11) NOT NULL,
+  `dozen` varchar(255) NOT NULL,
+  `fund` varchar(255) NOT NULL,
+  `sell` varchar(255) NOT NULL,
+  `min` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profits`
+--
+
+CREATE TABLE IF NOT EXISTS `profits` (
+  `id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -74,14 +116,14 @@ CREATE TABLE IF NOT EXISTS `stocks` (
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `stocks`
 --
 
 INSERT INTO `stocks` (`id`, `item_id`, `first_value`, `second_value`, `note`, `created`, `modified`) VALUES
-(3, 1, 3, 3, '1000 perbungkus', '2013-05-03 10:33:20', '0000-00-00 00:00:00');
+(5, 3, 5, 5, 'perbatang 1000', '2013-05-04 04:49:21', '0000-00-00 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

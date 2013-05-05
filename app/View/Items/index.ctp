@@ -41,6 +41,7 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('New Item'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Stocks'), array('controller'=>'stocks','action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Prices'), array('controller'=>'prices','action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('Histories'), array('controller'=>'histories','action' => 'index')); ?></li>
 	</ul>
 </div>

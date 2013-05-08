@@ -46,7 +46,7 @@ class Item extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-                'Price' => array(
+        'Price' => array(
 			'className' => 'Stock',
 			'foreignKey' => 'item_id',
 			'dependent' => true,

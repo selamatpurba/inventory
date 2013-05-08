@@ -1,3 +1,9 @@
+<script>
+	sell=document.getElementById("sell").innerHTML;
+	alert(sell);
+x=accounting.formatMoney(sell);
+document.write(x);
+</script>
 <div class="prices index">
 	<h2><?php echo __('Prices'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -20,7 +26,7 @@
 		</td>
 		<td><?php echo h($price['Price']['dozen']); ?>&nbsp;</td>
 		<td><?php echo h($price['Price']['fund']); ?>&nbsp;</td>
-		<td><?php echo h($price['Price']['sell']); ?>&nbsp;</td>
+		<td><div id="sell"><?php echo h($price['Price']['sell']); ?></div>&nbsp;</td>
 		<td><?php echo h($price['Price']['min']); ?>&nbsp;</td>
 		<td><?php echo h($price['Price']['created']); ?>&nbsp;</td>
 		<td><?php echo h($price['Price']['modified']); ?>&nbsp;</td>

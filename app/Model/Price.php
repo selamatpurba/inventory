@@ -24,9 +24,9 @@ class Price extends AppModel {
 			),
 		),
 		'dozen' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+			'salary' => array(
+				'rule' => array('money', 'left'),
+				'message' => 'Please supply a valid monetary amount.',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -34,8 +34,9 @@ class Price extends AppModel {
 			),
 		),
 		'fund' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'salary' => array(
+				'rule' => array('money', 'left'),
+				'message' => 'Please supply a valid monetary amount.',
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -44,8 +45,9 @@ class Price extends AppModel {
 			),
 		),
 		'sell' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'salary' => array(
+				'rule' => array('money', 'left'),
+				'message' => 'Please supply a valid monetary amount.',
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -54,8 +56,9 @@ class Price extends AppModel {
 			),
 		),
 		'min' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'salary' => array(
+				'rule' => array('money', 'left'),
+				'message' => 'Please supply a valid monetary amount.',
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

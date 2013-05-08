@@ -1,3 +1,20 @@
+<script>
+	function minus(){
+		var fund=document.getElementById("PriceFund").value;
+		var sell=document.getElementById("PriceSell").value;
+		if(fund<0){
+			alert("Kesalahan pada nilai modal.");
+			document.getElementById("PriceFund").value="";
+		}else if(sell<0){
+			alert("Kesalahan pada nilai jual.");
+			document.getElementById("PriceSell").value="";
+		}
+		else{
+			var minus2=sell-fund;
+		}
+		document.getElementById("PriceMin").value=minus2;
+	}
+</script>
 <div class="prices form">
 <?php echo $this->Form->create('Price'); ?>
 	<fieldset>
@@ -6,9 +23,9 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('item_id');
 		echo $this->Form->input('dozen');
-		echo $this->Form->input('fund');
-		echo $this->Form->input('sell');
-		echo $this->Form->input('min');
+		echo $this->Form->input('fund',array("onchange"=>"minus()"));
+		echo $this->Form->input('sell',array("onchange"=>"minus()"));
+		echo $this->Form->input('min',array("readonly"));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property History $History
  */
 class HistoriesController extends AppController {
-public $helpers = array('Form', 'Html', 'Js', 'Time');
+
 /**
  * index method
  *

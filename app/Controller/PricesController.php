@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Price $Price
  */
 class PricesController extends AppController {
-
+public $helpers = array('Form', 'Html', 'Js', 'Time');
 /**
  * index method
  *

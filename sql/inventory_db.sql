@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 3.5.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 05, 2013 at 08:21 PM
--- Server version: 5.5.16
--- PHP Version: 5.3.8
+-- Generation Time: May 11, 2013 at 03:59 PM
+-- Server version: 5.5.25a
+-- PHP Version: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -85,7 +85,14 @@ CREATE TABLE IF NOT EXISTS `prices` (
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `prices`
+--
+
+INSERT INTO `prices` (`id`, `item_id`, `dozen`, `fund`, `sell`, `min`, `created`, `modified`) VALUES
+(3, 3, '20000', '1000', '3000', '2000', '2013-05-07 09:18:50', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -123,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `stocks` (
 --
 
 INSERT INTO `stocks` (`id`, `item_id`, `first_value`, `second_value`, `note`, `created`, `modified`) VALUES
-(5, 3, 5, 5, 'perbatang 1000', '2013-05-04 04:49:21', '0000-00-00 00:00:00');
+(5, 3, 5, 4, 'perbatang 1000', '2013-05-04 04:49:21', '2013-05-11 07:20:32');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

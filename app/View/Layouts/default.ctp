@@ -33,6 +33,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->css('base/jquery-ui');
 		echo $this->Html->script('jquery-ui/jquery-1.9.1');
 		echo $this->Html->script('accounting');
+		//echo $this->Html->script('jquery-1.9.1.min');
 		echo $this->Html->script('jquery-ui/ui/jquery-ui');
 		echo $this->Html->script(array(strtolower($this->params['controller'])));
 		echo $this->App->js();

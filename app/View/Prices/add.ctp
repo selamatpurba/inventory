@@ -15,7 +15,7 @@
 		//
 		$('#PriceDozen').on('change', function() {
 			if(this.value<0){
-				alert("Nilai tidak valid");
+				$().toastmessage('showErrorToast', "Kesalahan nilai lusin");
 				$(this).focus();
 				$(this).css("background-color","red");
 				$('#dozen').show();
@@ -27,7 +27,7 @@
 		});
 		$('#PriceFund').on('change', function() {
 			if(this.value<0){
-				alert("Nilai tidak valid");
+				$().toastmessage('showErrorToast', "Kesalahan nilai modal");
 				$(this).focus();
 				$(this).css("background-color","red");
 				$('#fund').show();
@@ -39,7 +39,7 @@
 		});
 		$('#PriceSell').on('change', function() {
 			if(this.value<0){
-				alert("Nilai tidak valid");
+				$().toastmessage('showErrorToast', "Kesalahan nilai jual");
 				$(this).focus();
 				$(this).css("background-color","red");
 				$('#sell').show();
@@ -49,9 +49,8 @@
 				$('#sell').hide();
 				}  
 		});
-		
+	
 		var counter = 2;
- 
 		$("#addButton").click(function () {
 		    if(counter>10){
 			alert("Only 10 textboxes allow");
@@ -99,16 +98,28 @@
 <?php echo $this->Form->create('Price'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Price'); ?></legend>
-	<?php
-		echo $this->Form->input('item_id');
-		echo $this->Form->input('dozen');
-		echo "<div id='dozen'></div>";
-		echo $this->Form->input('fund',array("onkeyup"=>"minus()"));
-		echo "<div id='fund'></div>";
-		echo $this->Form->input('sell',array("onkeyup"=>"minus()"));
-		echo "<div id='sell'></div>";
-		echo $this->Form->input('min',array("readonly"));
-	?>
+		<table>
+			<tr>
+				<td>
+					<?php	echo $this->Form->input('item_id'); ?>
+				</td>
+				<td>
+					<?php echo $this->Form->input('dozen'); ?>
+					<div id='dozen'></div>
+				</td>
+				<td>
+					<?php echo $this->Form->input('fund',array("onkeyup"=>"minus()")); ?>
+					<div id='fund'></div>
+				</td>
+				<td>
+					<?php echo $this->Form->input('sell',array("onkeyup"=>"minus()")); ?>
+					<div id='sell'></div>
+				</td>
+				<td>
+					<?php echo $this->Form->input('min',array("readonly")); ?>
+				</td>
+			</tr>
+		</table>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 <div id='TextBoxesGroup'>

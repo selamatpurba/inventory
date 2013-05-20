@@ -13,6 +13,47 @@
 		//	$('#PriceMin').val(valueMin);
 		//});
 		//
+		
+		var counter = 0;
+		$("#addButton").click(function () {
+		    if(counter>10){
+			alert("Only 10 textboxes allow");
+			return false;
+		    }   
+		    var newTextBoxDiv = $(document.createElement('div'))
+			 .attr("id", 'TextBoxDiv' + counter);
+		    newTextBoxDiv.after().html('<input name="data[Price][dozen]['+counter+']" maxlength="255" type="text" id="PriceDozen'+counter+'" required="required"/>');
+		    newTextBoxDiv.appendTo("#TextBoxesGroup");
+			$('#PriceDozen'+counter+'').on('change', function() {
+			    if(this.value<0){
+				    $().toastmessage('showErrorToast', "Kesalahan nilai lusin");
+				    $(this).focus();
+				    $(this).css("background-color","red");
+				    $('#dozen').show();
+				    $('#dozen').text("salah nih bro");
+			    }else{
+				    $(this).css("background-color","white");
+				    $('#dozen').hide();
+			    }  
+			});
+		    counter++;
+		 });
+		 $("#removeButton").click(function () {
+		    if(counter==1){
+		      alert("No more textbox to remove");
+		      return false;
+		   }   
+		    counter--;
+		    $("#TextBoxDiv" + counter).remove();
+		 });
+		 $("#getButtonValue").click(function () {
+		    var msg = '';
+		    for(i=1; i<counter; i++){
+		      msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
+		    }
+		      alert(msg);
+		});
+		 
 		$('#PriceDozen').on('change', function() {
 			if(this.value<0){
 				$().toastmessage('showErrorToast', "Kesalahan nilai lusin");
@@ -49,36 +90,6 @@
 				$('#sell').hide();
 				}  
 		});
-	
-		var counter = 2;
-		$("#addButton").click(function () {
-		    if(counter>10){
-			alert("Only 10 textboxes allow");
-			return false;
-		    }   
-		    var newTextBoxDiv = $(document.createElement('div'))
-			 .attr("id", 'TextBoxDiv' + counter);
-		    newTextBoxDiv.after().html('<label>Textbox #'+ counter + ' : </label>' +
-			  '<input type="text" name="textbox' + counter + 
-			  '" id="textbox' + counter + '" value="" >');
-		    newTextBoxDiv.appendTo("#TextBoxesGroup");
-		    counter++;
-		 });
-		 $("#removeButton").click(function () {
-		    if(counter==1){
-		      alert("No more textbox to remove");
-		      return false;
-		   }   
-		    counter--;
-		    $("#TextBoxDiv" + counter).remove();
-		 });
-		 $("#getButtonValue").click(function () {
-		    var msg = '';
-		    for(i=1; i<counter; i++){
-		      msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
-		    }
-		      alert(msg);
-		 });
 	});
 	
 	function minus(){
@@ -121,12 +132,13 @@
 			</tr>
 		</table>
 	</fieldset>
+	<div id='TextBoxesGroup'>
+		<div id="TextBoxDiv1">
+			<label>Textbox #1 : </label><input type='text' id='textbox1' >
+		</div>
+	</div>	
 <?php echo $this->Form->end(__('Submit')); ?>
-<div id='TextBoxesGroup'>
-	<div id="TextBoxDiv1">
-		<label>Textbox #1 : </label><input type='text' id='textbox1' >
-	</div>
-</div>
+
 <input type='button' value='Add Button' id='addButton'>
 <input type='button' value='Remove Button' id='removeButton'>
 <input type='button' value='Get TextBox Value' id='getButtonValue'>
